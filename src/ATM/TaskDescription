@@ -1,0 +1,9 @@
+
+Parašyti programą, kuri veiktų kaip bankomatas:
+• Prieš pradedant veikti paprašytų įvesti PIN kodą (iki 3 kartų);
+• Galima įnešti pinigų (jeigu yra laisvos vietos banknotams);
+• Pasiimti pinigų jeigu yra banknotų, su galimybe pasirinkti gauti smulkiomis kupiūromis. Kitu atveju duodamos stambiausios turimos kupiūros;
+• Pasitikrinti sąskaitos likutį;
+• Pakeisti pin kodą;
+• Pervesti pinigus į draugo sąskaitą;
+Sukurkite mažiausiai dviejų vartotojų sąskaitas
