@@ -15,6 +15,8 @@ public class ATM {
         Account user = users[userIndex];
 
         System.out.println("Selected user: " + user.getCustomerNumber());
+
+        menu();
     }
 
     public static int selectUser() {
@@ -39,16 +41,29 @@ public class ATM {
         return --userIndex;
     }
 
-    public void menu() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("1.Put money into account");
-        System.out.println("2.Change PIN code");
-        System.out.println("3.Check account balance");
-        System.out.println("4.Transfer money to another account");
-        System.out.println("5.Finish session");
+    public static void menu() {
+        boolean end = false;
 
+        while (!end) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("1.Put money into account");
+            System.out.println("2.Change PIN code");
+            System.out.println("3.Check account balance");
+            System.out.println("4.Transfer money to another account");
+            System.out.println("5.Finish session");
+            int choice = sc.nextInt();
 
+            switch (choice) {
+                case 5:
+                    end = true;
+                    break;
+                default:
+                    System.out.println("\nInvalid Choice.");
+                    break;
+            }
         }
+
+
     }
 }
 
