@@ -47,9 +47,7 @@ public class ATM {
         System.out.println("4.Transfer money to another account");
         System.out.println("5.Finish session");
 
-        int choice = input.nextInt();
-        switch (choice) {
-            case 1:
+
         }
     }
 }
