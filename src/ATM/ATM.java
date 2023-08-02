@@ -11,13 +11,34 @@ public class ATM {
 
         Bankomat bankomat = new Bankomat(10, 20, 10, 25, 12);
 
+        int userIndex = selectUser();
+        Account user = users[userIndex];
+
+        System.out.println("Selected user: " + user.getCustomerNumber());
     }
 
-    public void user() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("1.User_1234");
-        System.out.println("2.User_5678");
+    public static int selectUser() {
+        boolean end = false;
+        int userIndex = 0;
+
+        while (!end) {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Select user:");
+            System.out.println("1. User_1234");
+            System.out.println("2. User_5678");
+            userIndex = sc.nextInt();
+
+            if (userIndex == 1 || userIndex == 2) {
+                end = true;
+            } else {
+                System.out.println("Wrong choice");
+            }
+        }
+
+        return --userIndex;
     }
+
     public void menu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("1.Put money into account");
