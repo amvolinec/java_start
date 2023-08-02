@@ -1,6 +1,5 @@
 package ATM;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class ATM {
@@ -37,7 +36,6 @@ public class ATM {
                 System.out.println("Wrong choice");
             }
         }
-
         return --userIndex;
     }
 
@@ -62,7 +60,20 @@ public class ATM {
                     break;
             }
         }
+    }
+    public static int putMoney(){
 
+        return 0;
+    }
+    public static double changePIN(){
+
+        return 0;
+    }
+    public static double checkBalance(){
+
+        return 0;
+    }
+    public static void transferMoney(){
 
     }
 }
