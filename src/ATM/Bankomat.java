@@ -105,6 +105,9 @@ public class Bankomat {
         int total = getTotal();
         int count100 = 0;
         int count50 = 0;
+        int count20 = 0;
+        int count10 = 0;
+        int count5 = 0;
 
         if (sum > total) {
             System.out.println("ATM does not have required sum!" + sum);
@@ -146,6 +149,58 @@ public class Bankomat {
             }
         } else {
             System.out.println("Sum < 50");
+        }
+
+        // 20 section;
+        if (sum > 20) {
+            count20 = this.getEur20() - sum / 20;
+
+            if (count20 < 0) {
+                count20 = this.getEur20();
+                this.setEur20(0);
+                sum = sum - count20 * 20;
+            } else {
+                count20 = sum / 20;
+                this.setEur20(this.getEur20() - sum / 20);
+                sum = sum - count20 * 20;
+                System.out.println("20 euros in ATM : " + this.getEur20());
+            }
+        } else {
+            System.out.println("Sum < 20");
+        }
+        // 10 section;
+        if (sum > 10) {
+            count10 = this.getEur10() - sum / 10;
+
+            if (count10 < 0) {
+                count10 = this.getEur10();
+                this.setEur10(0);
+                sum = sum - count10 * 10;
+            } else {
+                count10 = sum / 10;
+                this.setEur10(this.getEur10() - sum / 10);
+                sum = sum - count10 * 10;
+                System.out.println("10 euros in ATM : " + this.getEur10());
+            }
+        } else {
+            System.out.println("Sum < 10");
+        }
+        // 5 section;
+        if (sum > 5) {
+            count5 = this.getEur5() - sum / 5;
+
+            if (count5 < 0) {
+                count5 = this.getEur5();
+                this.setEur5(0);
+                sum = sum - count5 * 5;
+            } else {
+                count5 = sum / 5;
+                this.setEur5(this.getEur5() - sum / 5);
+                sum = sum - count5 * 5;
+                System.out.println("5 euros in ATM : " + this.getEur5());
+            }
+        } else {
+            System.out.println("Sum < 10");
         }
 
         System.out.println("count of 100: " + count100 + " count of 50: " + count50 + " rest: " + sum);
