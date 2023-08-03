@@ -167,5 +167,15 @@ public class ATM {
         System.out.println("Please enter " + type + " bill count: ");
         return input.nextInt();
     }
+
+    private static void getCash() {
+        // %
+        //        sum =
+        //        user.getTotalBalance()
+        //        if()
+        //  boolean result = bankomat.getCash(sum); // return false | true
+        //        if(boolean) {
+    }
+
 }
 
