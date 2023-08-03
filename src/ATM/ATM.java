@@ -172,7 +172,9 @@ public class ATM {
         // %
         //        sum =
         //        user.getTotalBalance()
-        //        if()
+        //        if(sum > user.getTotalBalance()) {
+//        return;
+//    }
         //  boolean result = bankomat.getCash(sum); // return false | true
         //        if(boolean) {
     }
