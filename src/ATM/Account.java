@@ -4,13 +4,11 @@ public class Account {
     private int customerNumber;
     private int pinNumber;
     private double totalBalance = 0;
-    private double availableBalance = 0;
 
     public Account(int customerNumber,int pinNumber,double totalBalance){
         this.customerNumber = customerNumber;
         this.pinNumber = pinNumber;
         this.totalBalance = totalBalance;
-        this.availableBalance = totalBalance;
     }
 
     public int getCustomerNumber() {
@@ -35,13 +33,5 @@ public class Account {
 
     public void setTotalBalance(double totalBalance) {
         this.totalBalance = totalBalance;
-    }
-
-    public double getAvailableBalance() {
-        return availableBalance;
-    }
-
-    public void setAvailableBalance(double availableBalance) {
-        this.availableBalance = availableBalance;
     }
 }

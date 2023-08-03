@@ -3,6 +3,8 @@ package ATM;
 import java.util.Scanner;
 
 public class ATM {
+
+    private static Account user;
     public static void main(String[] args) {
         Account[] users = new Account[2];
         users[0] = new Account(1234, 6789, 2300);
@@ -11,7 +13,7 @@ public class ATM {
         Bankomat bankomat = new Bankomat(10, 20, 10, 25, 12);
 
         int userIndex = selectUser();
-        Account user = users[userIndex];
+        user = users[userIndex];
 
         System.out.println("Selected user: " + user.getCustomerNumber());
 
@@ -52,6 +54,15 @@ public class ATM {
             int choice = sc.nextInt();
 
             switch (choice) {
+                case 1:
+                    putMoney();
+                    break;
+                case 2:
+                    changePIN();
+                    break;
+                case 3:
+                    checkBalance();
+                    break;
                 case 5:
                     end = true;
                     break;
@@ -62,18 +73,21 @@ public class ATM {
         }
     }
     public static int putMoney(){
+        System.out.println("Please put money in: " + ;
 
         return 0;
     }
     public static double changePIN(){
+        System.out.println("Please enter new PIN code: " + user.getPinNumber());
 
         return 0;
     }
-    public static double checkBalance(){
-
-        return 0;
+    public static void checkBalance(){
+        System.out.println("\nYour balance: " + user.getTotalBalance());
     }
+
     public static void transferMoney(){
+
 
     }
 }
