@@ -200,10 +200,11 @@ public class Bankomat {
                 System.out.println("5 euros in ATM : " + this.getEur5());
             }
         } else {
-            System.out.println("Sum < 10");
+            System.out.println("Sum < 5");
         }
 
-        System.out.println("count of 100: " + count100 + " count of 50: " + count50 + " rest: " + sum);
+        System.out.println("count of 100: " + count100 + " count of 50: " + count50 + "count of 20: " + count20 +
+                "count of 10: " + count10 + "count of 5: " + count5 + " rest: " + sum);
 
         if (count100 > this.getEur100()) {
             System.out.println(">");
