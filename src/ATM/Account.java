@@ -2,10 +2,10 @@ package ATM;
 
 public class Account {
     private int customerNumber;
-    private int pinNumber;
+    private String pinNumber;
     private double totalBalance = 0;
 
-    public Account(int customerNumber,int pinNumber,double totalBalance){
+    public Account(int customerNumber, String pinNumber, double totalBalance) {
         this.customerNumber = customerNumber;
         this.pinNumber = pinNumber;
         this.totalBalance = totalBalance;
@@ -19,11 +19,11 @@ public class Account {
         this.customerNumber = customerNumber;
     }
 
-    public int getPinNumber() {
+    public String getPinNumber() {
         return pinNumber;
     }
 
-    public void setPinNumber(int pinNumber) {
+    public void setPinNumber(String pinNumber) {
         this.pinNumber = pinNumber;
     }
 
@@ -33,5 +33,9 @@ public class Account {
 
     public void setTotalBalance(double totalBalance) {
         this.totalBalance = totalBalance;
+    }
+
+    public void showBalance() {
+        System.out.println("Your balance: " + this.getTotalBalance());
     }
 }
