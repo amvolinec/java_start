@@ -111,11 +111,12 @@ public class Bankomat {
 
     public String getCash(int sum) {
         int total = getTotal();
+
         if (sum < total) {
             return "ATM does not have required sum!";
         }
 
-
+        return "OK!";
     }
 }
 
