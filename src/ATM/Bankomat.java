@@ -56,8 +56,8 @@ public class Bankomat {
     }
 
     public static void main(String[] args) {
-        Bankomat pirma = new Bankomat(50, 5, 10, 40, 50);
-        pirma.getCash(1375);
+        Bankomat pirma = new Bankomat(2, 20, 50, 40, 50);
+        pirma.getCash(2650);
     }
 
     public void parodyk() {
@@ -101,7 +101,7 @@ public class Bankomat {
         }
     }
 
-    public String getCash(int sum) {
+    public boolean getCash(int sum) {
         int total = getTotal();
         int count100 = 0;
         int count50 = 0;
@@ -112,11 +112,11 @@ public class Bankomat {
         if (sum > total) {
             System.out.println("ATM does not have required sum!" + sum);
             System.out.println("ATM has only: " + total);
-            return "ATM does not have required sum!";
+            return false;
         }
 
         // 100 section;
-        if (sum > 100) {
+        if (sum >= 100) {
             count100 = this.getEur100() - sum / 100;
 
             if (count100 < 0) {
@@ -134,7 +134,7 @@ public class Bankomat {
         }
 
         // 50 section;
-        if (sum > 50) {
+        if (sum >= 50) {
             count50 = this.getEur50() - sum / 50;
 
             if (count50 < 0) {
@@ -152,7 +152,7 @@ public class Bankomat {
         }
 
         // 20 section;
-        if (sum > 20) {
+        if (sum >= 20) {
             count20 = this.getEur20() - sum / 20;
 
             if (count20 < 0) {
@@ -169,7 +169,7 @@ public class Bankomat {
             System.out.println("Sum < 20");
         }
         // 10 section;
-        if (sum > 10) {
+        if (sum >= 10) {
             count10 = this.getEur10() - sum / 10;
 
             if (count10 < 0) {
@@ -186,7 +186,7 @@ public class Bankomat {
             System.out.println("Sum < 10");
         }
         // 5 section;
-        if (sum > 5) {
+        if (sum >= 5) {
             count5 = this.getEur5() - sum / 5;
 
             if (count5 < 0) {
@@ -203,14 +203,15 @@ public class Bankomat {
             System.out.println("Sum < 5");
         }
 
-        System.out.println("count of 100: " + count100 + " count of 50: " + count50 + "count of 20: " + count20 +
-                "count of 10: " + count10 + "count of 5: " + count5 + " rest: " + sum);
+
+        System.out.println("count of 100: " + count100 + " count of 50: " + count50 + " count of 20: " + count20 +
+                " count of 10: " + count10 + " count of 5: " + count5 + " rest: " + sum);
 
         if (count100 > this.getEur100()) {
             System.out.println(">");
         }
 
-        return "OK!";
+        return true;
     }
 }
 
