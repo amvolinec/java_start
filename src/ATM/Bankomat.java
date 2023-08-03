@@ -57,7 +57,7 @@ public class Bankomat {
 
     public static void main(String[] args) {
         Bankomat pirma = new Bankomat(50, 5, 10, 40, 50);
-        pirma.getCash(1325);
+        pirma.getCash(1375);
     }
 
     public void parodyk() {
@@ -104,6 +104,7 @@ public class Bankomat {
     public String getCash(int sum) {
         int total = getTotal();
         int count100 = 0;
+        int count50 = 0;
 
         if (sum > total) {
             System.out.println("ATM does not have required sum!" + sum);
@@ -112,7 +113,7 @@ public class Bankomat {
         }
 
         // 100 section;
-        if(sum > 100) {
+        if (sum > 100) {
             count100 = this.getEur100() - sum / 100;
 
             if (count100 < 0) {
@@ -125,10 +126,29 @@ public class Bankomat {
                 sum = sum - count100 * 100;
                 System.out.println("100 euros in ATM : " + this.getEur100());
             }
+        } else {
+            System.out.println("Sum < 100");
         }
 
+        // 50 section;
+        if (sum > 50) {
+            count50 = this.getEur50() - sum / 50;
 
-        System.out.println("count100 " + count100 + " rest: " + sum);
+            if (count50 < 0) {
+                count50 = this.getEur50();
+                this.setEur50(0);
+                sum = sum - count50 * 50;
+            } else {
+                count50 = sum / 50;
+                this.setEur50(this.getEur50() - sum / 50);
+                sum = sum - count50 * 50;
+                System.out.println("50 euros in ATM : " + this.getEur50());
+            }
+        } else {
+            System.out.println("Sum < 50");
+        }
+
+        System.out.println("count of 100: " + count100 + " count of 50: " + count50 + " rest: " + sum);
 
         if (count100 > this.getEur100()) {
             System.out.println(">");
