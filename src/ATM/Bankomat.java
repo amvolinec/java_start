@@ -128,7 +128,6 @@ public class Bankomat {
         }
 
 
-
         System.out.println("count100 " + count100 + " rest: " + sum);
 
         if (count100 > this.getEur100()) {
