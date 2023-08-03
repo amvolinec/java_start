@@ -103,6 +103,7 @@ public class Bankomat {
 
     public String getCash(int sum) {
         int total = getTotal();
+        int count100 = 0;
 
         if (sum > total) {
             System.out.println("ATM does not have required sum!" + sum);
@@ -110,18 +111,22 @@ public class Bankomat {
             return "ATM does not have required sum!";
         }
 
-        int count100 = this.getEur100() - sum / 100;
+        // 100 section;
+        if(sum > 100) {
+            count100 = this.getEur100() - sum / 100;
 
-        if (count100 < 0) {
-            count100 = this.getEur100();
-            this.setEur100(0);
-            sum = sum - count100 * 100;
-        } else {
-            count100 = sum / 100;
-            this.setEur100(this.getEur100() - sum / 100);
-            sum = sum - count100 * 100;
-            System.out.println("100 euros in ATM : " + this.getEur100());
+            if (count100 < 0) {
+                count100 = this.getEur100();
+                this.setEur100(0);
+                sum = sum - count100 * 100;
+            } else {
+                count100 = sum / 100;
+                this.setEur100(this.getEur100() - sum / 100);
+                sum = sum - count100 * 100;
+                System.out.println("100 euros in ATM : " + this.getEur100());
+            }
         }
+
 
 
         System.out.println("count100 " + count100 + " rest: " + sum);
