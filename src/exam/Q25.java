@@ -1,10 +1,9 @@
-package Exam;
+package exam;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Q25 {
     public static void main(String[] args) {

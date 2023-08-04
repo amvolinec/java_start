@@ -1,4 +1,4 @@
-package Exam;
+package exam;
 
 public class Uzduotis2 {
     static int i = 19;
