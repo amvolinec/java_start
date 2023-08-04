@@ -12,6 +12,8 @@ public class ATM {
     private static final Account[] users = new Account[3];
 
     public static void main(String[] args) {
+
+
         users[0] = new Account(1234, "6789", 2300);
         users[1] = new Account(5678, "1234", 4600);
         users[2] = new Account(9999, "1111", 0); // friend account
@@ -22,7 +24,9 @@ public class ATM {
         user = users[userIndex];
 
         System.out.println("Selected user: " + user.getCustomerNumber());
+
         menu();
+
     }
 
     public static int selectUser() {
