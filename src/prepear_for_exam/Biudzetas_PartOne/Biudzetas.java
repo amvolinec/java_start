@@ -59,7 +59,6 @@ public class Biudzetas {
     }
 
     public void atspausdintiIslaidas() {
-
         for (int j = 0; j < ij; j++) {
             System.out.println(islaidos[j]);
         }

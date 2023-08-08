@@ -60,7 +60,7 @@ public class Bankomat {
         pirma.getCash(2650);
     }
 
-    public void parodyk() {
+    public void showResultInBankomat() {
         System.out.println("Pinigineje turite: \n" + eur100 + " 100 eur banknotu\n" + eur50 + " 50 eur banknotu\n" +
                 eur20 + " 20 eur banknotu\n" + eur10 + " 10 eur banknotu\n" + eur5 + " 5 eur banknotu\n");
     }
@@ -203,14 +203,12 @@ public class Bankomat {
             System.out.println("Sum < 5");
         }
 
-
         System.out.println("count of 100: " + count100 + " count of 50: " + count50 + " count of 20: " + count20 +
                 " count of 10: " + count10 + " count of 5: " + count5 + " rest: " + sum);
 
         if (count100 > this.getEur100()) {
             System.out.println(">");
         }
-
         return true;
     }
 }
