@@ -95,7 +95,6 @@ public class Bankomat {
             } else {
                 count.put(nominal, sum / nominal);
                 bills.put(nominal, bills.get(nominal) - count.get(nominal));
-//                System.out.println("Count: " + count.get(nominal) + " rest off " + nominal + " bills euros in ATM: " + bills.get(nominal));
             }
 
             sum = sum - count.get(nominal) * nominal;
