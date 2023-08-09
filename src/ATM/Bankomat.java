@@ -3,8 +3,8 @@ package ATM;
 import java.util.HashMap;
 
 public class Bankomat {
-    HashMap<Integer, Integer> bills = new HashMap<Integer, Integer>(5);
-    HashMap<Integer, Integer> count = new HashMap<Integer, Integer>(5);
+    HashMap<Integer, Integer> bills = new HashMap<Integer, Integer>(5); // in ATM
+    HashMap<Integer, Integer> count = new HashMap<Integer, Integer>(5); // taken
 
     public Bankomat(int eur100, int eur50, int eur20, int eur10, int eur5) {
         bills.put(100, eur100);
