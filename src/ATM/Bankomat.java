@@ -3,8 +3,8 @@ package ATM;
 import java.util.HashMap;
 
 public class Bankomat {
-    HashMap<Integer, Integer> bills = new HashMap<Integer, Integer>();
-    HashMap<Integer, Integer> count = new HashMap<Integer, Integer>();
+    HashMap<Integer, Integer> bills = new HashMap<Integer, Integer>(5);
+    HashMap<Integer, Integer> count = new HashMap<Integer, Integer>(5);
 
     public Bankomat(int eur100, int eur50, int eur20, int eur10, int eur5) {
         bills.put(100, eur100);
@@ -31,11 +31,12 @@ public class Bankomat {
     }
 
     public void showResultInBankomat() {
-        System.out.println("ATM has: \n" + getBill(100) + " 100 eur bills\n"
-                + getBill(50) + " 50 eur bills\n"
-                + getBill(20) + " 20 eur bills\n"
-                + getBill(10) + " 10 eur bills\n"
-                + getBill(5) + " 5 eur bills\n");
+        System.out.println("ATM has: \n"
+                + getBill(100) + "x 100 eur bills\n"
+                + getBill(50) + "x 50 eur bills\n"
+                + getBill(20) + "x 20 eur bills\n"
+                + getBill(10) + "x 10 eur bills\n"
+                + getBill(5) + "x 5 eur bills\n");
     }
 
     public int getTotal() {
@@ -84,12 +85,13 @@ public class Bankomat {
     }
 
     private int getSum(int sum, int nominal) {
+
         if (sum >= nominal) {
             count.put(nominal, bills.get(nominal) - sum / nominal);
 
-            if (count.get(nominal) < 0) {
-                count.put(nominal, bills.get(nominal));
-                bills.put(nominal, 0);
+            if (count.get(nominal) < 0) { // If request > bills in ATM
+                count.put(nominal, bills.get(nominal)); // we take all bills from ATM this nominal
+                bills.put(nominal, 0); // ATM has 0 bills those nominal
             } else {
                 count.put(nominal, sum / nominal);
                 bills.put(nominal, bills.get(nominal) - count.get(nominal));
