@@ -1,113 +1,57 @@
 package ATM;
 
+import java.util.HashMap;
+
 public class Bankomat {
-    public int getEur100() {
-        return eur100;
-    }
+    HashMap<Integer, Integer> bills = new HashMap<Integer, Integer>();
+    HashMap<Integer, Integer> count = new HashMap<Integer, Integer>();
 
-    public void setEur100(int eur100) {
-        this.eur100 = eur100;
-    }
-
-    public int getEur50() {
-        return eur50;
-    }
-
-    public void setEur50(int eur50) {
-        this.eur50 = eur50;
-    }
-
-    public int getEur20() {
-        return eur20;
-    }
-
-    public void setEur20(int eur20) {
-        this.eur20 = eur20;
-    }
-
-    public int getEur10() {
-        return eur10;
-    }
-
-    public void setEur10(int eur10) {
-        this.eur10 = eur10;
-    }
-
-    public int getEur5() {
-        return eur5;
-    }
-
-    public void setEur5(int eur5) {
-        this.eur5 = eur5;
-    }
-
-    int eur100;
-    int eur50;
-    int eur20;
-    int eur10;
-    int eur5;
-
-    public Bankomat(int eur100, int eur50, int eur20, int eur10, int eur5) { //konstruktor
-        this.eur100 = eur100;
-        this.eur50 = eur50;
-        this.eur20 = eur20;
-        this.eur10 = eur10;
-        this.eur5 = eur5;
+    public Bankomat(int eur100, int eur50, int eur20, int eur10, int eur5) {
+        bills.put(100, eur100);
+        bills.put(50, eur50);
+        bills.put(20, eur20);
+        bills.put(10, eur10);
+        bills.put(5, eur5);
     }
 
     public static void main(String[] args) {
-        Bankomat pirma = new Bankomat(2, 20, 50, 40, 50);
-        pirma.getCash(2650);
+        Bankomat atm = new Bankomat(2, 20, 50, 40, 50);
+        atm.showResultInBankomat();
+        atm.suma();
+        atm.getCash(2650);
+        atm.showResultInBankomat();
+    }
+
+    public void setBill(int key, int value) {
+        bills.put(key, bills.get(key) + value);
+    }
+
+    public int getBill(int key) {
+        return bills.get(key);
     }
 
     public void showResultInBankomat() {
-        System.out.println("Pinigineje turite: \n" + eur100 + " 100 eur banknotu\n" + eur50 + " 50 eur banknotu\n" +
-                eur20 + " 20 eur banknotu\n" + eur10 + " 10 eur banknotu\n" + eur5 + " 5 eur banknotu\n");
+        System.out.println("ATM has: \n" + getBill(100) + " 100 eur bills\n"
+                + getBill(50) + " 50 eur bills\n"
+                + getBill(20) + " 20 eur bills\n"
+                + getBill(10) + " 10 eur bills\n"
+                + getBill(5) + " 5 eur bills\n");
     }
 
     public int getTotal() {
-        return (eur100 * 100) + (eur50 * 50) + (eur20 * 20) + (eur10 * 10) + (eur5 * 5);
+        return (getBill(100) * 100)
+                + (getBill(50) * 50)
+                + (getBill(20) * 20)
+                + (getBill(10) * 10)
+                + (getBill(5) * 5);
     }
 
     public void suma() {
-        System.out.println("Viso pinigineje turite: " + getTotal() + " euru.");
-    }
-
-    public void inesti(int eur100, int eur50, int eur20, int eur10, int eur5) {
-        this.eur100 += eur100;
-        this.eur50 += eur50;
-        this.eur20 += eur20;
-        this.eur10 += eur10;
-        this.eur5 += eur5;
-    }
-
-    public void addBills(String type, int count) {
-        switch (type) {
-            case "100":
-                this.setEur100(this.getEur100() + count);
-                break;
-            case "50":
-                this.setEur50(this.getEur50() + count);
-                break;
-            case "20":
-                this.setEur20(this.getEur20() + count);
-                break;
-            case "10":
-                this.setEur10(this.getEur10() + count);
-                break;
-            case "5":
-                this.setEur5(this.getEur5() + count);
-                break;
-        }
+        System.out.println("ATM has: " + getTotal() + " eur.");
     }
 
     public boolean getCash(int sum) {
         int total = getTotal();
-        int count100 = 0;
-        int count50 = 0;
-        int count20 = 0;
-        int count10 = 0;
-        int count5 = 0;
 
         if (sum > total) {
             System.out.println("ATM does not have required sum!" + sum);
@@ -116,100 +60,47 @@ public class Bankomat {
         }
 
         // 100 section;
-        if (sum >= 100) {
-            count100 = this.getEur100() - sum / 100;
-
-            if (count100 < 0) {
-                count100 = this.getEur100();
-                this.setEur100(0);
-                sum = sum - count100 * 100;
-            } else {
-                count100 = sum / 100;
-                this.setEur100(this.getEur100() - sum / 100);
-                sum = sum - count100 * 100;
-                System.out.println("100 euros in ATM : " + this.getEur100());
-            }
-        } else {
-            System.out.println("Sum < 100");
-        }
+        sum = getSum(sum, 100);
 
         // 50 section;
-        if (sum >= 50) {
-            count50 = this.getEur50() - sum / 50;
-
-            if (count50 < 0) {
-                count50 = this.getEur50();
-                this.setEur50(0);
-                sum = sum - count50 * 50;
-            } else {
-                count50 = sum / 50;
-                this.setEur50(this.getEur50() - sum / 50);
-                sum = sum - count50 * 50;
-                System.out.println("50 euros in ATM : " + this.getEur50());
-            }
-        } else {
-            System.out.println("Sum < 50");
-        }
+        sum = getSum(sum, 50);
 
         // 20 section;
-        if (sum >= 20) {
-            count20 = this.getEur20() - sum / 20;
+        sum = getSum(sum, 20);
 
-            if (count20 < 0) {
-                count20 = this.getEur20();
-                this.setEur20(0);
-                sum = sum - count20 * 20;
-            } else {
-                count20 = sum / 20;
-                this.setEur20(this.getEur20() - sum / 20);
-                sum = sum - count20 * 20;
-                System.out.println("20 euros in ATM : " + this.getEur20());
-            }
-        } else {
-            System.out.println("Sum < 20");
-        }
         // 10 section;
-        if (sum >= 10) {
-            count10 = this.getEur10() - sum / 10;
+        sum = getSum(sum, 10);
 
-            if (count10 < 0) {
-                count10 = this.getEur10();
-                this.setEur10(0);
-                sum = sum - count10 * 10;
-            } else {
-                count10 = sum / 10;
-                this.setEur10(this.getEur10() - sum / 10);
-                sum = sum - count10 * 10;
-                System.out.println("10 euros in ATM : " + this.getEur10());
-            }
-        } else {
-            System.out.println("Sum < 10");
-        }
         // 5 section;
-        if (sum >= 5) {
-            count5 = this.getEur5() - sum / 5;
+        sum = getSum(sum, 5);
 
-            if (count5 < 0) {
-                count5 = this.getEur5();
-                this.setEur5(0);
-                sum = sum - count5 * 5;
-            } else {
-                count5 = sum / 5;
-                this.setEur5(this.getEur5() - sum / 5);
-                sum = sum - count5 * 5;
-                System.out.println("5 euros in ATM : " + this.getEur5());
-            }
-        } else {
-            System.out.println("Sum < 5");
-        }
+        System.out.println("count of 100: " + count.get(100)
+                + " count of 50: " + count.get(50)
+                + " count of 20: " + count.get(20)
+                + " count of 10: " + count.get(10)
+                + " count of 5: " + count.get(5)  + " rest: " + sum);
 
-        System.out.println("count of 100: " + count100 + " count of 50: " + count50 + " count of 20: " + count20 +
-                " count of 10: " + count10 + " count of 5: " + count5 + " rest: " + sum);
-
-        if (count100 > this.getEur100()) {
-            System.out.println(">");
-        }
         return true;
+    }
+
+    private int getSum(int sum, int nominal) {
+        if (sum >= nominal) {
+            count.put(nominal, bills.get(nominal) - sum / nominal);
+
+            if (count.get(nominal) < 0) {
+                count.put(nominal, bills.get(nominal));
+                bills.put(nominal, 0);
+            } else {
+                count.put(nominal, sum / nominal);
+                bills.put(nominal, bills.get(nominal) - count.get(nominal));
+//                System.out.println("Count: " + count.get(nominal) + " rest off " + nominal + " bills euros in ATM: " + bills.get(nominal));
+            }
+
+            sum = sum - count.get(nominal) * nominal;
+        } else {
+            System.out.println("Sum < " + nominal);
+        }
+        return sum;
     }
 }
 

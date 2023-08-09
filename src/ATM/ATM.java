@@ -105,27 +105,27 @@ public class ATM {
                 case 1:
                     count = getBillCount("100 Euro");
                     user.setTotalBalance(user.getTotalBalance() + count * 100);
-                    bankomat.addBills("100", count);
+                    bankomat.setBill(100, count);
                     break;
                 case 2:
                     count = getBillCount("50 Euro");
                     user.setTotalBalance(user.getTotalBalance() + count * 50);
-                    bankomat.addBills("50", count);
+                    bankomat.setBill(50, count);
                     break;
                 case 3:
                     count = getBillCount("20 Euro");
                     user.setTotalBalance(user.getTotalBalance() + count * 20);
-                    bankomat.addBills("20", count);
+                    bankomat.setBill(20, count);
                     break;
                 case 4:
                     count = getBillCount("10 Euro");
                     user.setTotalBalance(user.getTotalBalance() + count * 10);
-                    bankomat.addBills("10", count);
+                    bankomat.setBill(10, count);
                     break;
                 case 5:
                     count = getBillCount("5 Euro");
                     user.setTotalBalance(user.getTotalBalance() + count * 5);
-                    bankomat.addBills("5", count);
+                    bankomat.setBill(5, count);
                     break;
                 case 6:
                     break;
