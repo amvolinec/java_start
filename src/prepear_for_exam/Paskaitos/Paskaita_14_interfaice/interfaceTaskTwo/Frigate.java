@@ -36,7 +36,6 @@ public class Frigate implements IsSeaVessel {
         this.maxSpeed = maxSpeed;
     }
 
-
     @Override
     public int getDisplacement() {
         return displacement;

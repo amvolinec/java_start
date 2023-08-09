@@ -46,8 +46,6 @@ public class Main {
             }
         } while (operator != 'X');
     }
-
-
 }
 
 

@@ -6,7 +6,6 @@ public class Hovercraft implements IsLandVehicle, IsSeaVessel {
     String name;
     int maxPassengers;
     int maxSpeed;
-
     int numWheels;
 
     @Override
@@ -39,7 +38,6 @@ public class Hovercraft implements IsLandVehicle, IsSeaVessel {
         this.maxSpeed = maxSpeed;
     }
 
-
     @Override
     public int getDisplacement() {
         return displacement;
@@ -49,7 +47,6 @@ public class Hovercraft implements IsLandVehicle, IsSeaVessel {
     public void setDisplacement(int displacement) {
         this.displacement = displacement;
     }
-
 
     public String enterLand() {
         return "Važiuoju sausuma";

@@ -1,6 +1,6 @@
 package exam;
 
-public class Uzduotis2 {
+public class Uzduotis14 {
     static int i = 19;
 
     static void mazink() {
@@ -11,5 +11,4 @@ public class Uzduotis2 {
         mazink(); mazink();
         System.out.println(i);
     }
-
 }

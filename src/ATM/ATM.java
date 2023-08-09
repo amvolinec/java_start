@@ -13,7 +13,6 @@ public class ATM {
 
     public static void main(String[] args) {
 
-
         users[0] = new Account(1234, "6789", 2300);
         users[1] = new Account(5678, "1234", 4600);
         users[2] = new Account(9999, "1111", 0); // friend account
@@ -26,7 +25,6 @@ public class ATM {
         System.out.println("Selected user: " + user.getCustomerNumber());
 
         menu();
-
     }
 
     public static int selectUser() {
@@ -55,27 +53,31 @@ public class ATM {
 
         while (!end) {
             Scanner sc = new Scanner(System.in);
-            System.out.println("1.Put money into account");
-            System.out.println("2.Change PIN code");
-            System.out.println("3.Check account balance");
-            System.out.println("4.Transfer money to another account");
-            System.out.println("5.Finish session");
+            System.out.println("1.Put cash into account");
+            System.out.println("2.Get cash from account");
+            System.out.println("3.Change PIN code");
+            System.out.println("4.Check account balance");
+            System.out.println("5.Transfer money to another account");
+            System.out.println("6.Finish session");
             int choice = sc.nextInt();
 
             switch (choice) {
                 case 1:
-                    putMoney();
+                    putCash();
                     break;
                 case 2:
-                    changePIN();
+                    getCash();
                     break;
                 case 3:
-                    checkBalance();
+                    changePIN();
                     break;
                 case 4:
-                    transferMoney();
+                    checkBalance();
                     break;
                 case 5:
+                    transferMoney();
+                    break;
+                case 6:
                     end = true;
                     break;
                 default:
@@ -85,7 +87,7 @@ public class ATM {
         }
     }
 
-    public static void putMoney() {
+    public static void putCash() {
         int type = 0;
         int count;
         do {
@@ -133,21 +135,21 @@ public class ATM {
             }
         } while (type > 0 && type < 6);
 
-        bankomat.parodyk();
+        bankomat.showResultInBankomat();
         user.showBalance();
     }
 
-    public static void changePIN() {
+    public static void changePIN() {  // change PIN method
         System.out.println("Please enter new PIN code: ");
         String choice = input.next();
         user.setPinNumber(choice);
     }
 
-    public static void checkBalance() {
+    public static void checkBalance() { // check balance method
         System.out.println("\nYour balance: " + user.getTotalBalance());
     }
 
-    public static void transferMoney() {
+    public static void transferMoney() { // transfer money to another account
         boolean end = false;
 
         do {
@@ -163,25 +165,33 @@ public class ATM {
             user.setTotalBalance(user.getTotalBalance() - sum);
             end = true;
 
-            System.out.println("\nSuccess, the sum is go to friend account!");
+            System.out.println("\nSuccess, the sum was sent to friend account!");
         } while (!end);
     }
 
-    private static int getBillCount(String type) {
+    private static int getBillCount(String type) {  // get bill count method
         System.out.println("Please enter " + type + " bill count: ");
         return input.nextInt();
     }
 
-    private static void getCash() {
-        // %
-        //        sum =
-        //        user.getTotalBalance()
-        //        if(sum > user.getTotalBalance()) {
-//        return;
-//    }
-        //  boolean result = bankomat.getCash(sum); // return false | true
-        //        if(boolean) {
+    private static void getCash() {  // get cash method
+        boolean end = false;
+        int sum;
+
+        System.out.println("Please enter the sum: ");
+        sum = input.nextInt();
+
+        if (sum > user.getTotalBalance()) {
+            System.out.println("\nATM does not have required sum!");
+            return;
+        }
+        boolean result = bankomat.getCash(sum); // return false | true
+
+        System.out.println("\nSuccess, you got cash!");
+
     }
 
+    //  boolean result = bankomat.getCash(sum); // return false | true
+    //        if(boolean) {
 }
 
