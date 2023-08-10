@@ -1,0 +1,8 @@
+Programa turi paklausti, kokį veiksmą vartotojas nori atlikti:
+− A – sugeneruoti atsitiktinį skaičių 1 – 100.
+− B – sugeneruoti 10 atsitiktinių skaičių.
+− E – baigti darbą.
+Programą išspręskite trimis būdais:
+− Naudojant tik while
+− Naudojant tik do-while
+− Naudojant tik for

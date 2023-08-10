@@ -1,4 +1,4 @@
-package exam.one;
+package prepear_for_exam.exam.one;
 
 // javac
 public class Exam1 {

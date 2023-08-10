@@ -1,4 +1,4 @@
-package exam;
+package prepear_for_exam.exam;
 
 import java.util.ArrayList;
 import java.util.HashSet;

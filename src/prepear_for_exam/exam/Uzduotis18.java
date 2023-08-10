@@ -1,4 +1,4 @@
-package exam;
+package prepear_for_exam.exam;
 
 public class Uzduotis18 {
     public static void main(String[] args) {

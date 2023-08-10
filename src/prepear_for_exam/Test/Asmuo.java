@@ -1,4 +1,4 @@
-package Test;
+package prepear_for_exam.Test;
 
 public class Asmuo {
     String Vardas;

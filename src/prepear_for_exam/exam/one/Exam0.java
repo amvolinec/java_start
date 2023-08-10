@@ -1,4 +1,4 @@
-package exam.one;
+package prepear_for_exam.exam.one;
 
 // Difference between static and non-static methods
 public class Exam0 {

@@ -1,4 +1,4 @@
-package exam;
+package prepear_for_exam.exam;
 
 public class Uzduotis16 {
     static int i = 1;
