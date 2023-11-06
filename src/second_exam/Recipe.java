@@ -15,8 +15,6 @@ public class Recipe {
                 .toAbsolutePath()
                 .toString();
 
-        System.out.println("Current absolute path is - " + userDirectory);
-
         String fileNameUrl = userDirectory + "/src/second_exam/Traškutė.txt";
 
         try {
