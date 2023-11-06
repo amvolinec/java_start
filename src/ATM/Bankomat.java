@@ -12,6 +12,7 @@ public class Bankomat {
         bills.put(20, eur20);
         bills.put(10, eur10);
         bills.put(5, eur5);
+        System.out.println("ATM has: " + getTotal() + " eur.");
     }
 
     public static void main(String[] args) {

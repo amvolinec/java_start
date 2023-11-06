@@ -1,4 +1,4 @@
-package SelfStudy.loops.loops;
+package SelfStudy.loops;
 
 public class DoWhileLoopSimpleExample {
     public static void main(String[] args) {
