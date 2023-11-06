@@ -1,10 +1,6 @@
 package NovemberSixExam;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.MonthDay;
-import java.util.Date;
-import java.util.Locale;
 
 public class SecondTask {
 
