@@ -21,8 +21,6 @@ public class DB {
 
         try (InputStream input = new FileInputStream(userDirectory + "/src/MYSQL/config.properties")) {
 
-//            Class.forName("com.mysql.jdbc.Driver");
-
             Properties prop = new Properties();
             // load a properties file
             prop.load(input);
@@ -41,7 +39,10 @@ public class DB {
             ex.printStackTrace();
         }
 
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
         try (Connection conn = DriverManager.getConnection(url, username, password);
+
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM clients")) {
 
